@@ -70,6 +70,12 @@ public:
   /* returns new o/p state 0, 1 */
   int tick(unsigned long nowSecs);
 
+  void setCt( int cycleTime ){m_cycleTime = cycleTime;};
+  void setDt( int deadTime ){m_deadTime = deadTime;};
+  void setInvert( unsigned char invert ){m_invert = invert;};
+  void setFallback( float fallbackPower ){m_fallbackPower = fallbackPower;};
+  void setInterval( int maxUpdateInterval ){m_maxUpdateInterval = maxUpdateInterval;};
+
 private:
   int m_cycleTime;        // cycle time seconds, float to force float calcs
   int m_deadTime;         // actuator action time seconds
