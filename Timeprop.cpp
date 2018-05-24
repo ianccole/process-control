@@ -33,6 +33,16 @@ void Timeprop::initialise( int cycleTime, int deadTime, unsigned char invert, fl
   setPower(m_fallbackPower, nowSecs);
 }
 
+void Timeprop::setCt( int cycleTime ){
+    m_cycleTime = cycleTime;
+    m_dtoc = (float)m_deadTime/m_cycleTime;
+}
+
+void Timeprop::setDt( int deadTime ){
+    m_deadTime = deadTime;
+    m_dtoc = (float)m_deadTime/m_cycleTime;
+}
+
 /* set current power required 0:1, given power and current time in seconds */
 void Timeprop::setPower( float power, unsigned long nowSecs ) {
   if (power < 0.0) {
